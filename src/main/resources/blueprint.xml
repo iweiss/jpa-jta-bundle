@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<blueprint xmlns="http://www.osgi.org/xmlns/blueprint/v1.0.0"
+           xmlns:jpa="http://aries.apache.org/xmlns/jpa/v1.1.0">
+
+	<bean id="datasourceRO" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+		<property name="driverClassName" value="org.hsqldb.jdbcDriver"/>
+		<property name="url" value="jdbc:hsqldb:file:testdb-ro"/>
+		<property name="username" value="sa"/>
+		<property name="password" value="sa"/>
+	</bean>
+
+	<service ref="datasourceRO" interface="javax.sql.DataSource">
+		<service-properties>
+			<entry key="osgi.jndi.service.name" value="jdbc/ReadOnlyDS"/>
+		</service-properties>
+	</service>
+
+	<bean id="datasourceRW" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+		<property name="driverClassName" value="org.hsqldb.jdbcDriver"/>
+		<property name="url" value="jdbc:hsqldb:file:testdb-rw"/>
+		<property name="username" value="sa"/>
+		<property name="password" value="sa"/>
+	</bean>
+
+	<service ref="datasourceRW" interface="javax.sql.DataSource">
+		<service-properties>
+			<entry key="osgi.jndi.service.name" value="jdbc/ReadWriteDS"/>
+		</service-properties>
+	</service>
+
+	<!-- Basic Bean Definitions-->
+	<bean id="bean" class="paxexam.bundle.persistence.Bean">
+		<property name="property" value="Hello World"/>
+	</bean>
+
+	<!-- Osgi Service Related -->
+	<!--
+        Exposing Services :
+        ...
+
+        References to Services :
+        <reference id="referenceId" availability="optional" interface="foo.bar.IBaz"/>
+    -->
+
+</blueprint>
