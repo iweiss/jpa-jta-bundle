@@ -11,8 +11,6 @@ stacktrace.log
 .DS_Store
 *target/
 /out/
-/web-app/plugins
-/web-app/WEB-INF/classes
 *.swp
 *.swo
 logs/*

@@ -1,11 +1,24 @@
 package paxexam.bundle.persistence;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
 /**
  * Created by lasombra on 25/01/2014.
  */
+
+@Entity
 public class Bean
 {
+	@Id
+	int id;
+	@Column(nullable = false)
 	String property;
+
+	public Bean()
+	{
+	}
 
 	public String getProperty()
 	{
@@ -15,6 +28,16 @@ public class Bean
 	public void setProperty(String property)
 	{
 		this.property = property;
+	}
+
+	public int getId()
+	{
+		return id;
+	}
+
+	public void setId(int id)
+	{
+		this.id = id;
 	}
 
 	@Override

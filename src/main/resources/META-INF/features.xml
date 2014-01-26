@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<features>
+	<feature name="jta-jpa-support">
+		<feature>karaf-framework</feature>
+
+		<!-- JTA -->
+		<config name="org.apache.aries.transaction">
+			aries.transaction.recoverable = true
+			aries.transaction.timeout = 600
+			aries.transaction.howl.logFileDir = ${karaf.data}/txlog
+			aries.transaction.howl.maxLogFiles = 2
+			aries.transaction.howl.maxBlocksPerFile = 512
+			aries.transaction.howl.bufferSizeKBytes = 4
+		</config>
+
+		<bundle start-level="30">mvn:org.apache.geronimo.specs/geronimo-jta_1.1_spec/1.1.1</bundle>
+		<bundle start-level="30">mvn:org.apache.aries.transaction/org.apache.aries.transaction.blueprint/1.0.0</bundle>
+		<bundle start-level="30">mvn:org.apache.aries.transaction/org.apache.aries.transaction.manager/1.0.1</bundle>
+	</feature>
+</features>
