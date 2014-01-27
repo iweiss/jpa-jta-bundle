@@ -15,7 +15,7 @@
         </service-properties>
     </service>
 
-    <bean id="datasourceRO" class="javax.sql.DataSource" destroy-method="close">
+    <bean id="datasourceRO" class="org.hsqldb.jdbc.JDBCDataSource" destroy-method="close">
         <property name="driverClassName" value="org.hsqldb.jdbcDriver"/>
         <property name="url" value="jdbc:hsqldb:file:testdb-ro"/>
         <property name="username" value="sa"/>
@@ -28,7 +28,7 @@
         </service-properties>
     </service>
 
-    <bean id="datasourceRW" class="javax.sql.DataSource" destroy-method="close">
+    <bean id="datasourceRW" class="org.hsqldb.jdbc.JDBCDataSource" destroy-method="close">
         <property name="driverClassName" value="org.hsqldb.jdbcDriver"/>
         <property name="url" value="jdbc:hsqldb:file:testdb-rw"/>
         <property name="username" value="sa"/>
