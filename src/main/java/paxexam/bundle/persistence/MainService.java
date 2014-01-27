@@ -1,7 +1,7 @@
 package paxexam.bundle.persistence;
 
 /**
- * Created by lasombra on 25/01/2014.
+ * Created by Ingo Weiss on 25/01/2014.
  */
 public interface MainService
 {

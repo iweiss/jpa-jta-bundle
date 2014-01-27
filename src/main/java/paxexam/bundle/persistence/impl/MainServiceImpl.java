@@ -8,7 +8,7 @@ import javax.persistence.*;
 import java.util.List;
 
 /**
- * Created by lasombra on 26/01/2014.
+ * Created by Ingo Weiss on 26/01/2014.
  */
 public class MainServiceImpl implements MainService
 {
