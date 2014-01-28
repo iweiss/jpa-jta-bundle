@@ -6,10 +6,11 @@
              version="2.0">
 
 	<persistence-unit name="pu-ro" transaction-type="JTA">
-        <!--<provider>org.hibernate.ejb.HibernatePersistence</provider>-->
+        <provider>org.hibernate.ejb.HibernatePersistence</provider>
 		<non-jta-data-source>
 			osgi:service/javax.sql.DataSource/(osgi.jndi.service.name=jdbc/ReadOnlyDS)
 		</non-jta-data-source>
+        <class>paxexam.bundle.persistence.Bean</class>
 		<properties>
 			<property name="hibernate.dialect" value="org.hibernate.dialect.HSQLDialect"/>
 			<property name="hibernate.hbm2ddl.auto" value="create-drop"/>
@@ -17,10 +18,11 @@
 	</persistence-unit>
 
 	<persistence-unit name="pu-rw" transaction-type="JTA">
-        <!--<provider>org.hibernate.ejb.HibernatePersistence</provider>-->
+        <provider>org.hibernate.ejb.HibernatePersistence</provider>
 		<jta-data-source>
 			osgi:service/javax.sql.DataSource/(osgi.jndi.service.name=jdbc/ReadWriteDS)
 		</jta-data-source>
+        <class>paxexam.bundle.persistence.Bean</class>
 		<properties>
 			<property name="hibernate.dialect" value="org.hibernate.dialect.HSQLDialect"/>
 			<property name="hibernate.hbm2ddl.auto" value="create-drop"/>
